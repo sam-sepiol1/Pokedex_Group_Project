@@ -1,0 +1,29 @@
+.heart-button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+    .heart-image{
+      height: 100%;
+      width: auto;
+   
+    }
+  
+
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  
