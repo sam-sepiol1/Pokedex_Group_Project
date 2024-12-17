@@ -1,5 +1,17 @@
 @use "../variables" as *;
 
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 3fr));
+    grid-gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+
 .card{
     display: flex;
     flex-direction: column;
@@ -34,6 +46,8 @@
   object-fit: contain; 
 }
 
-p{
+.card-name{
+    text-transform: capitalize;
     margin: 0;
+    font-weight: 500;
 }

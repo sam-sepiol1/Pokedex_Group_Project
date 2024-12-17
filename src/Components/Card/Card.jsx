@@ -17,25 +17,39 @@ export default function Card() {
   }, []); // Empty dependency array means this effect runs only once when the component mounts
 
   return (
-    <div className="card">
-      <div className="heart-number">
-        <HeartButton />
-        <p className="card-number"># 000</p>
-      </div>
 
-      {/* Render Pokémon data once it's available */}
-      {pokemons.length > 0 ? (
-        <>
-          <img
-            className="card-img"
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemons[0].url.split('/')[6]}.png`}
-            alt={pokemons[0].name}
-          />
-          <p className="card-name">{pokemons[0].name}</p>
-        </>
-      ) : (
-        <p>Loading...</p> // Show loading text while data is being fetched
-      )}
+    <div className="cards">
+
+        {pokemons.map((pokemon) => {
+            return (
+
+                <div className="card" key={pokemon.name}>
+                <div className="heart-number">
+                    <HeartButton />
+                    <p className="card-number">
+                        {`#${String(pokemon.url.split('/')[6]).padStart(3, '0')}`}
+                      
+
+                    </p>
+                </div>
+        
+                
+                {pokemons.length > 0 ? (
+                    <>
+                    <img
+                        className="card-img"
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`}
+                        alt={pokemon.name}
+                    />
+                    <p className="card-name">{pokemon.name}</p>
+                    </>
+                ) : (
+                    <p>Loading...</p> // Show loading text while data is being fetched
+                )}
+                </div>
+            );
+        })}
+       
     </div>
   );
 }
