@@ -1,0 +1,34 @@
+@use '../variables' as *;
+
+.input__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.form { 
+    width: 100%;
+}
+
+.input { 
+    border: none;
+    border-radius: 50px;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: $InnerShadow;
+}
+
+.button { 
+    border: none;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: $White;
+    color: $Primary;
+    padding: 0 1rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: $InnerShadow;
+}
