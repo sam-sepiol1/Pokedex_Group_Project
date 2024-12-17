@@ -1,9 +1,9 @@
-@import 'reset' ;
-@import 'variables' ;
-@import 'typography' ;
-@import './Header/header';
-@import './Card/card';
-@import './Input/input';
-@import './Popup/popup';
-@import './Sort/sort';
+@use 'variables';
+@use 'reset' ;
+@use 'typography' ;
+@use './Header/header';
+@use './Card/card';
+@use './Input/input';
+@use './Popup/popup';
+@use './Sort/sort';
 

@@ -1,0 +1,19 @@
+@use '../variables' as *;
+
+.header { 
+    background-color: $Primary;
+    padding: 2em 1em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    &__logo {
+        color: $White;
+    }
+
+    &__title {
+        color: $White;
+        margin: 0;
+    }
+}
