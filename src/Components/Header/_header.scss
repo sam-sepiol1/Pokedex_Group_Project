@@ -5,14 +5,20 @@
     padding: 2em 1em;
     margin: 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 1em;
 
     &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    &__logo__img {
         color: $White;
     }
 
-    &__title {
+    &__logo__title {
         color: $White;
         margin: 0;
     }

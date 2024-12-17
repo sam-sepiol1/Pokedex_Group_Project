@@ -1,11 +1,17 @@
 import './_header.scss'
 import Pokeball from '../../assets/Pokeball.svg'
+import Input from '../Input/Input'
 
 const Header = () => {
     return (
         <header className="header">
-            <img className="header__logo" src={Pokeball} alt="Pokeball" />
-            <h1 className="header__title">Pokedex</h1>
+        <div className="header__logo">
+            <img className="header__logo__img" src={Pokeball} alt="Pokeball" />
+            <h1 className="header__logo__title">Pokedex</h1>
+        </div>
+        <div className="header__search">
+            <Input />
+        </div>
         </header>
     )
 }
