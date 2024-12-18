@@ -9,7 +9,11 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
-}
+    background-color: $White;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 15px;
+  }
 
 
 .card{
@@ -50,4 +54,21 @@
     text-transform: capitalize;
     margin: 0;
     font-weight: 500;
+}
+
+.liked-container{
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-left: 100px;
+  width: calc(100% - 200px);
+  margin-right: 100px;
+  border-radius: 15px;
+  h1{
+    background-color: $White;
+    color: black;
+}
+  
 }

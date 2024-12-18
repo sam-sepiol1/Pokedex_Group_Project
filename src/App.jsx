@@ -1,12 +1,16 @@
+import Card from "./Components/Card/Card";
 import Header from "./Components/Header/Header";
-import './Components/styles.scss'
-
-const App = () => {
+import Liked from "./Components/Liked/Liked";
+function App() {
     return (
-        <div>
-            <Header />
+        <div className="App">
+            <Header/>
+            <Card />
+            <Header/>
+
+            <Liked/>
         </div>
-    )
+    );
 }
 
-export default App
+export default App;
