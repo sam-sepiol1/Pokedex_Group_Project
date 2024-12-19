@@ -4,7 +4,7 @@ import Input from '../Input/Input'
 import { Link } from 'react-router-dom' // Import Link for navigation
 import { Outlet } from 'react-router-dom' // Import Outlet for rendering nested routes
 
-const Header = () => {
+const Header = ({ search, handleInputChange }) => {
     return (
         <>
             <header className="header">
@@ -13,7 +13,7 @@ const Header = () => {
                     <h1 className="header__logo__title">Pokedex</h1>
                 </div>
                 <div className="header__search">
-                    <Input />
+                    <Input search={search} handleInputChange={handleInputChange} />
                 </div>
                 {/* Add navigation links */}
                 <nav className="header__nav">

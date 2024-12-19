@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import transparentHeartImage from "../../images/transparent-heart.png";
 import { useState } from "react";
 
-const Input = () => {
+const Input = ({ search, handleInputChange }) => {
     const [liked, setLiked] = useState(false); // State to track whether the item is liked
     const navigate = useNavigate(); // Initialize the navigate hook for programmatic navigation
 
@@ -22,7 +22,7 @@ const Input = () => {
     return (
         <div className="input__container">
             <form className="form">
-                <input className="input" type="text" placeholder="🔍 Search" />
+                <input value={search} onChange={handleInputChange} className="input" type="text" placeholder="🔍 Search" />
             </form>
             <button className="button1">#</button>
 
