@@ -1,74 +1,77 @@
-@use "../variables" as *;
+@use '../variables' as *;
 
+.cards {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(200px, 3fr));
+	grid-gap: 20px;
+	padding: 20px;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	background-color: $White;
+	margin-left: 100px;
+	margin-right: 100px;
+	border-radius: 15px;
 
-.cards{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 3fr));
-    grid-gap: 20px;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    background-color: $White;
-    margin-left: 100px;
-    margin-right: 100px;
-    border-radius: 15px;
-  }
-
-
-.card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    background-color: white;
-    border: 1px solid black;
-    background: linear-gradient(to bottom, $White 60%, $Background 40%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-
-  .heart-number{
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    .card-number{
-        font-size: 30px;
-    }
-}
-}
-.card-img{
-  height: 60%;
-  width: auto;
-  margin:0;  
-  object-fit: contain; 
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(2, minmax(150px, 1fr));
+	}
+	@media (max-width: 480px) {
+		grid-template-columns: repeat(1, minmax(150px, 1fr));
+	}
 }
 
-.card-name{
-    text-transform: capitalize;
-    margin: 0;
-    font-weight: 500;
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
+	background-color: white;
+	border: 1px solid black;
+	background: linear-gradient(to bottom, $White 60%, $Background 40%);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+	.heart-number {
+		height: 50px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		.card-number {
+			font-size: 30px;
+		}
+	}
+}
+.card-img {
+	height: 60%;
+	width: auto;
+	margin: 0;
+	object-fit: contain;
 }
 
-.liked-container{
-  display: flex;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  margin-left: 100px;
-  width: calc(100% - 200px);
-  margin-right: 100px;
-  border-radius: 15px;
-  h1{
-    background-color: $White;
-    color: black;
+.card-name {
+	text-transform: capitalize;
+	margin: 0;
+	font-weight: 500;
 }
-  
+
+.liked-container {
+	display: flex;
+	padding: 20px;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	margin-left: 100px;
+	width: calc(100% - 200px);
+	margin-right: 100px;
+	border-radius: 15px;
+	h1 {
+		background-color: $White;
+		color: black;
+	}
 }
