@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../Card/_card.scss";
 import Card from "../Card/Card";
 
-export default function Liked({ sortType = "id", handleSortChange }) {
+export default function Liked({ sortType = "id" }) {
   const [likedPokemons, setLikedPokemons] = useState([]);
 
   useEffect(() => {
