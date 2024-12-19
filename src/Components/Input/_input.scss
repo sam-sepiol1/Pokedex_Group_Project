@@ -16,11 +16,11 @@
     border: none;
     border-radius: 50px;
     padding: 1rem;
-    width: 100%;
+    width: 88%;
     box-shadow: $InnerShadow;
 }
 
-.button { 
+.button1 { 
     border: none;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -31,4 +31,16 @@
     place-items: center;
     cursor: pointer;
     box-shadow: $InnerShadow;
+}
+.heart-image{
+    height: 15px;
+    width: auto;
+}
+
+.button{
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: $InnerShadow;
+    cursor: pointer;
+    border: none;
 }

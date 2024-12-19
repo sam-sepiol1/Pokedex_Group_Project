@@ -1,16 +1,36 @@
 import Card from "./Components/Card/Card";
 import Header from "./Components/Header/Header";
 import Liked from "./Components/Liked/Liked";
-function App() {
-    return (
-        <div className="App">
-            <Header/>
-            <Card />
-            <Header/>
+import { RouterProvider, createBrowserRouter, Outlet } from 'react-router-dom';
 
-            <Liked/>
-        </div>
+function App() {
+    const router = createBrowserRouter(
+        [
+            {
+                path: "/",
+                element: <Header />,
+                children: [
+                    { path: "/", element: <Card /> },
+                    { path: "/liked", element: <Liked /> },
+                    { path: "*", element: <h1>404 Page Not Found</h1> },
+                ],
+            },
+        ],
+        {
+            future: {
+                v7_partialHydration: true,
+                v7_skipActionErrorRevalidation: true,
+                v7_startTransition: true,
+                v7_relativeSplatPath: true,
+                v7_fetcherPersist: true,
+                v7_normalizeFormMethod: true,
+            },
+        }
     );
+    
+    return <RouterProvider router={router} />;
 }
+
+
 
 export default App;
