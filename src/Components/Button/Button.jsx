@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect  } from "react";
 import "./_button.scss";
 import heartImage from '../../images/heart.png';
@@ -21,13 +22,6 @@ const HeartButton = ({name}) => {
 
 
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  // if (favorites.includes(name)){
-  //   setLiked(!liked);
-  //   console.log(`status ${liked}`);
-  // }
-    
-
-
 
 if (!liked){
 
@@ -53,10 +47,6 @@ localStorage.setItem('favorites', JSON.stringify(favorites));
 
 
   };
-  // function handleClick(type) {
-  //   setContentType(type);
-  // }
-  // console.log(isActive);
 
   return (
     <button
