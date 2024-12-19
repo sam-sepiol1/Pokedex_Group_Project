@@ -34,7 +34,7 @@ export default function Card({ filter = [] }) {
 					</div>
 					{pokemons.length > 0 ? (
 						<>
-							<img className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
+							<img loading='lazy' className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
 							<p className='card-name'>{pokemon.name}</p>
 						</>
 					) : (

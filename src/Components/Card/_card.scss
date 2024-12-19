@@ -1,24 +1,16 @@
 @use '../variables' as *;
 
 .cards {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(200px, 3fr));
-	grid-gap: 20px;
-	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 3em;
+	padding: 3em;
 	align-items: center;
 	justify-content: center;
 	justify-items: center;
 	background-color: $White;
-	margin-left: 100px;
-	margin-right: 100px;
 	border-radius: 15px;
-
-	@media (max-width: 768px) {
-		grid-template-columns: repeat(2, minmax(150px, 1fr));
-	}
-	@media (max-width: 480px) {
-		grid-template-columns: repeat(1, minmax(150px, 1fr));
-	}
 }
 
 .card {
@@ -27,8 +19,6 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 10px;
-	width: 200px;
-	height: 200px;
 	border-radius: 10px;
 	background-color: white;
 	border: 1px solid black;
@@ -48,10 +38,8 @@
 	}
 }
 .card-img {
-	height: 60%;
-	width: auto;
 	margin: 0;
-	object-fit: contain;
+	width: 100%;
 }
 
 .card-name {
