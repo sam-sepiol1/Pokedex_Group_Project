@@ -3,7 +3,7 @@ import HeartButton from '../Button/Button';
 import { fetchPokemons } from './api'; // Import the fetchPokemons function
 import './_card.scss';
 
-export default function Card({ filter = '' }) {
+export default function Card({ filter = [] }) {
 	const [pokemons, setPokemons] = useState([]);
 
 	useEffect(() => {
@@ -12,12 +12,17 @@ export default function Card({ filter = '' }) {
 			setPokemons(data);
 		};
 		getPokemons();
-	}, [filter]);
+	}, []);
 
-	const filteredPokemons = pokemons.filter((pokemon) => {
-		const pokemonId = pokemon.url.split('/')[6];
-		return pokemon.name.toLowerCase().startsWith(filter.toLowerCase()) || pokemonId === filter;
-	});
+  const filteredPokemons = pokemons.filter((pokemon) => {
+    const pokemonId = pokemon.url.split('/')[6];
+    if (Array.isArray(filter)) {
+        return filter.includes(pokemon.name);
+    } else if (typeof filter === 'string') {
+        return pokemon.name.toLowerCase().startsWith(filter.toLowerCase()) || pokemonId === filter;
+    }
+    return true;
+});
 
 	return (
 		<div className='cards'>
