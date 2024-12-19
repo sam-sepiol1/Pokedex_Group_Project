@@ -9,7 +9,7 @@ const Sort_Button = ({ sortType, handleSortChange }) => {
     };  
 
     return (
-        <button className="button1" onClick={handleSort}>
+        <button className="button" onClick={handleSort}>
             Sort by {sortType === 'id' ? 'Name' : 'ID'}
         </button>
     );

@@ -23,7 +23,7 @@ function App() {
 				element: <Header search={search} handleInputChange={handleInputChange} handleSortChange={handleSortChange} sortType={sortType} />,
 				children: [
 					{ path: '/', element: <Card filter={search} sortType={sortType} /> },
-					{ path: '/liked', element: <Liked /> },
+					{ path: '/liked', element: <Liked filter={search} sortType={sortType} handleSortChange={handleSortChange}  /> },
 					{ path: '*', element: <h1>404 Page Not Found</h1> },
 				],
 			},

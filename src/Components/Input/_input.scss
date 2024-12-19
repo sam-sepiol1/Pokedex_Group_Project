@@ -20,18 +20,6 @@
     box-shadow: $InnerShadow;
 }
 
-.button1 { 
-    border: none;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: $White;
-    color: $Primary;
-    padding: 0 1rem;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    box-shadow: $InnerShadow;
-}
 .heart-image{
     height: 15px;
     width: auto;
@@ -39,8 +27,8 @@
 
 .button{
     border-radius: 15px;
-    min-width: 100px;
     box-shadow: $InnerShadow;
     cursor: pointer;
     border: none;
+    padding: 1rem;
 }

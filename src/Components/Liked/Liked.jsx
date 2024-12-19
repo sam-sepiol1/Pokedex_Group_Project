@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../Card/_card.scss";
 import Card from "../Card/Card";
 
-export default function Liked() {
+export default function Liked({ sortType = "id", handleSortChange }) {
   const [likedPokemons, setLikedPokemons] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Liked() {
   return (
     <div className="liked-container">
       {likedPokemons.length > 0 ? (
-        <Card filter={likedPokemons} />
+        <Card filter={likedPokemons} sortType={sortType}  />
       ) : (
         <h1>No favorites yet!</h1>
       )}
