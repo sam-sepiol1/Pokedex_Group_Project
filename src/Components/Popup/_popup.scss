@@ -1,0 +1,132 @@
+@use '../variables' as *;
+
+body {
+	background-color: $Grass;
+}
+
+.popup__container {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	width: 100%;
+}
+
+.popup__header,
+.popup__info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+}
+
+.popup__title,
+.popup__id {
+	color: $White;
+}
+
+.popup__title {
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.popup__back {
+	background-color: transparent;
+	border: none;
+	font-size: 2rem;
+	cursor: pointer;
+	object-fit: contain;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $White;
+}
+
+.popup__stats {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
+	background-color: $White;
+	margin: 0 1em;
+	padding: 1em;
+	border-radius: 5px;
+}
+
+.popup__img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.popup__types {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
+
+.about {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.popup__measurements {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	justify-content: center;
+	text-align: center;
+	gap: 1em;
+	height: auto;
+	padding: 1rem;
+}
+
+.weight__container,
+.height__container,
+.moves__value {
+	display: flex;
+	gap: 1em;
+	padding: 1em;
+}
+
+
+
+.moves {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup__divider {
+	border: none;
+	background-color: $Steel;
+	width: 2px;
+}
+
+.height__title,
+.weight__title,
+.moves__title {
+	color: $Medium;
+}
+
+.description {
+	padding: 0 1em;
+	text-align: center;
+}
+
+.base__stats {
+	width: 100%;
+	padding: 1rem;
+}
+
+.base__stats__title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.stat__name {
+	flex: 0.5;
+	text-align: right;
+	margin: 0 2em 0 0;
+}
