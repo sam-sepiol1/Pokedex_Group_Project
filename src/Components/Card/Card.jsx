@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'; // Import React hooks
 import HeartButton from '../Button/Button';
 import { fetchPokemons } from './api'; // Import the fetchPokemons function
 import './_card.scss';
 
-export default function Card({ filter = [] }) {
+export default function Card({ filter = [], sortType = 'id' }) {
 	const [pokemons, setPokemons] = useState([]);
 
 	useEffect(() => {
@@ -24,9 +25,19 @@ export default function Card({ filter = [] }) {
     return true;
 });
 
+const sortedPokemons = filteredPokemons.sort((a, b) => {
+	if (sortType === 'id') {
+		return a.url.split('/')[6] - b.url.split('/')[6];
+	} else {
+		return a.name.localeCompare(b.name);
+	}
+});
+
+
+
 	return (
 		<div className='cards'>
-			{filteredPokemons.map((pokemon) => (
+			{sortedPokemons.map((pokemon) => (
 				<div className='card' key={pokemon.name}>
 					<div className='heart-number'>
 						<HeartButton name={pokemon.name} />

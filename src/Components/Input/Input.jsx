@@ -1,10 +1,15 @@
-import './_input.scss'
-import heartImage from "../../images/heart.png";
-import { Link, useNavigate } from 'react-router-dom';
-import transparentHeartImage from "../../images/transparent-heart.png";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 
-const Input = ({ search, handleInputChange }) => {
+import heartImage from "../../images/heart.png";
+import transparentHeartImage from "../../images/transparent-heart.png";
+import Sort_Button from "../Button/Sort_Button";
+
+import './_input.scss'
+
+const Input = ({ search, handleInputChange, handleSortChange, sortType }) => {
     const [liked, setLiked] = useState(false); // State to track whether the item is liked
     const navigate = useNavigate(); // Initialize the navigate hook for programmatic navigation
 
@@ -24,21 +29,15 @@ const Input = ({ search, handleInputChange }) => {
             <form className="form">
                 <input value={search} onChange={handleInputChange} className="input" type="text" placeholder="🔍 Search" />
             </form>
-            <button className="button1">#</button>
+            <Sort_Button handleSortChange={handleSortChange} sortType={sortType}></Sort_Button>
 
-            {/* Link is used to navigate, and button click will toggle liked state */}
             <Link to={liked ? '/' : '/liked'}>
                 <button
                     className={`button ${liked ? "liked" : ""}`}
-                    onClick={toggleLike} // Call toggleLike function on click
+                    onClick={toggleLike} 
                 >
 
                     <p>{liked ? "All" : "Favorites"}</p>
-                    {/* <img
-                        src={liked ? transparentHeartImage : heartImage}
-                        alt={liked ? "Uniked heart" : "Liked heart"}
-                        className="heart-image"
-                    /> */}
                 </button>
             </Link>
         </div>

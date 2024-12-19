@@ -72,4 +72,5 @@ localStorage.setItem('favorites', JSON.stringify(favorites));
   );
 };
 
+
 export default HeartButton;

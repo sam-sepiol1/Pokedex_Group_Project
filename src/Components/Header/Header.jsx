@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import './_header.scss'
 import Pokeball from '../../assets/Pokeball.svg'
 import Input from '../Input/Input'
 import { Link } from 'react-router-dom' // Import Link for navigation
 import { Outlet } from 'react-router-dom' // Import Outlet for rendering nested routes
 
-const Header = ({ search, handleInputChange }) => {
+const Header = ({ search, handleInputChange, handleSortChange, sortType }) => {
     return (
         <>
             <header className="header">
@@ -13,7 +14,7 @@ const Header = ({ search, handleInputChange }) => {
                     <h1 className="header__logo__title">Pokedex</h1>
                 </div>
                 <div className="header__search">
-                    <Input search={search} handleInputChange={handleInputChange} />
+                    <Input search={search} handleInputChange={handleInputChange} handleSortChange={handleSortChange} sortType={sortType} />
                 </div>
                 {/* Add navigation links */}
                 <nav className="header__nav">
