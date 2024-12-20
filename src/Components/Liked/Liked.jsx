@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../Card/_card.scss";
 import Card from "../Card/Card";
 
-export default function Liked({ sortType = "id" }) {
+export default function Liked({ search, sortType = "id" }) {
   const [likedPokemons, setLikedPokemons] = useState([]);
 
   useEffect(() => {
@@ -23,10 +23,14 @@ export default function Liked({ sortType = "id" }) {
     };
   }, []);
 
+  const filteredPokemons = likedPokemons.filter((pokemon) =>
+    pokemon.toLowerCase().startsWith(search.toLowerCase())
+  );
+
   return (
     <div className="liked-container">
-      {likedPokemons.length > 0 ? (
-        <Card filter={likedPokemons} sortType={sortType}  />
+      {filteredPokemons.length > 0 ? (
+        <Card filter={filteredPokemons} sortType={sortType} />
       ) : (
         <h1>No favorites yet!</h1>
       )}
