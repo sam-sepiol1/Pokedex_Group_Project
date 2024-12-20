@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { IoMdArrowBack } from 'react-icons/io';
 import { useEffect, useState } from 'react';
-import { fetchPokemonDetails } from '../../api';
+import { fetchPokemonDetails } from '../Card/api';
 import Button from '../Button/Button';
 import './_popup.scss';
 import weightImage from '../../images/weight.png';
 import heightImage from '../../images/height.png';
 import Types from '../Types/Types';
 
-const Popup = ({id}) => {
+const Popup = ({id, onClose }) => {
 	const [data, setData] = useState({});
 
 	useEffect(() => {
@@ -20,11 +20,11 @@ const Popup = ({id}) => {
 	}, [id]);
 
 	return (
-		<>
-			<div className='popup'>
-				<div className='popup__container'>
+		<div className='allInfo' onClick={onClose}>
+			<div className='popup' >
+				<div className='popup__container'  onClick={(e) => e.stopPropagation()}>
 					<div className='popup__header'>
-						<button className='popup__back'>
+						<button className='popup__back' onClick={onClose}>
 							<IoMdArrowBack />
 						</button>
 						<h2 className='popup__title'> {data.name ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : ''} </h2>
@@ -83,7 +83,7 @@ const Popup = ({id}) => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
