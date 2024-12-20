@@ -1,35 +1,52 @@
 @use '../variables' as *;
 
-body {
-	background-color: $Grass;
+$types-colors: (
+  bug: $Bug,
+  dark: $Dark,
+  fairy: $Fairy,
+  fighting: $Fighting,
+  fire: $Fire,
+  flying: $Flying,
+  ghost: $Ghost,
+  grass: $Grass,
+  ground: $Ground,
+  ice: $Ice,
+  normal: $Normal,
+  poison: $Poison,
+  psychic: $Psychic,
+  rock: $Rock,
+  steel: $Steel,
+  water: $Water,
+);
+
+@mixin background-color($type) {
+  background-color: map-get($types-colors, $type);
 }
+
 .allInfo {
 	max-height: 90vh;
 	width: 560px;
 	overflow-y: auto;
-    position: fixed;
-   	top: 10px;
-     left: 100px;
-	 padding: 1rem 2rem;
-    // width: 100vw;
-    // height: 100vh;
-    // background-color: rgba(0, 0, 0, 0.5); // Add background overlay
-     z-index: 1000; // Ensure it is above other elements
-     display: flex;
-	 flex-direction: column;
-     align-items: center;
-     justify-content: center;
-	 cursor: pointer;
-	 background-color:aquamarine;
-}
+	position: fixed;
+	top: 10px;
+	left: 100px;
+	padding: 1rem 2rem;
+	// width: 100vw;
+	// height: 100vh;
+	// background-color: rgba(0, 0, 0, 0.5); // Add background overlay
+	z-index: 1000; // Ensure it is above other elements
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 
-.popup__container {
-	// display: flex;
-	// justify-content: space-between;
-	// padding: 1rem 2rem;
-	// width: 50%;
+	@each $type, $color in $types-colors {
+		&.#{$type} {
+		  @include background-color($type);
+		}
+	  }
 
-	
 }
 
 .popup__header,
@@ -108,8 +125,6 @@ body {
 	gap: 1em;
 	padding: 1em;
 }
-
-
 
 .moves {
 	display: flex;

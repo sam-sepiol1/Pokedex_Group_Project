@@ -19,8 +19,13 @@ const Popup = ({id, onClose }) => {
 		fetchData();
 	}, [id]);
 
+	const getBackgroundClass = (types) => {
+		if (!types || types.length === 0) return '';
+		return types[0].type.name; // Utilisez le premier type pour définir la classe
+	  };
+
 	return (
-		<div className='allInfo' onClick={onClose}>
+		<div className={`allInfo ${getBackgroundClass(data.types)}`} onClick={onClose} >
 			<div className='popup' >
 				<div className='popup__container'  onClick={(e) => e.stopPropagation()}>
 					<div className='popup__header'>
