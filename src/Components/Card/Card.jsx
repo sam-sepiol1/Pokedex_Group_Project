@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'; // Import React hooks
 import HeartButton from '../Button/Button';
-import { fetchPokemons } from './api'; // Import the fetchPokemons function
+import { fetchPokemons } from './api'; 
 import './_card.scss';
+import Popup from '../Popup/Popup'; 
 
 export default function Card({ filter = [], sortType = 'id' }) {
 	const [pokemons, setPokemons] = useState([]);
+  const [selectedPokemonId, setSelectedPokemonId] = useState(null);
 
 	useEffect(() => {
 		const getPokemons = async () => {
@@ -33,6 +35,14 @@ const sortedPokemons = filteredPokemons.sort((a, b) => {
 	}
 });
 
+const handleCardClick = (pokemonId) => { // *** Added ***
+  setSelectedPokemonId(pokemonId);    // *** Added ***
+};
+
+const closePopup = () => {              // *** Added ***
+  setSelectedPokemonId(null);        // *** Added ***
+};
+
 
 
 	return (
@@ -45,14 +55,28 @@ const sortedPokemons = filteredPokemons.sort((a, b) => {
 					</div>
 					{pokemons.length > 0 ? (
 						<>
-							<img loading='lazy' className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
+            < div
+              className="card-clickable" // *** Added ***
+              onClick={() => handleCardClick(pokemon.url.split('/')[6])} // *** Added ***
+                                >
+							<img loading='lazy' 
+              className='card-img'
+             // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} 
+              alt={pokemon.name} />
 							<p className='card-name'>{pokemon.name}</p>
+              </div>
 						</>
 					) : (
 						<p>Loading...</p> // Show loading text while data is being fetched
 					)}
 				</div>
 			))}
+
+      {/* Show Popup if a Pokémon is selected */}
+      {selectedPokemonId && ( // *** Added ***
+                <Popup id={selectedPokemonId} onClose={closePopup} /> // *** Added ***
+            )}
 		</div>
 	);
 }
