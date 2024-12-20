@@ -10,6 +10,7 @@ import Types from '../Types/Types';
 
 const Popup = ({id, onClose }) => {
 	const [data, setData] = useState({});
+	const [description, setDescription] = useState('');
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -24,8 +25,18 @@ const Popup = ({id, onClose }) => {
 		return types[0].type.name; // Utilisez le premier type pour définir la classe
 	  };
 
+	  useEffect(() => {
+		const fetchDescription = async () => {
+		  const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+		  const descriptionData = await data.json();
+		  setDescription(descriptionData.flavor_text_entries[0].flavor_text);
+		};
+		fetchDescription();
+	  }, [id]);
+
+
 	return (
-		<div className={`allInfo ${getBackgroundClass(data.types)}`} onClick={onClose} >
+		<div className={`allInfo ${getBackgroundClass(data.types)}`}  >
 			<div className='popup' >
 				<div className='popup__container'  onClick={(e) => e.stopPropagation()}>
 					<div className='popup__header'>
@@ -71,7 +82,7 @@ const Popup = ({id, onClose }) => {
 					</div>
 				</div>
 				<div className='description'>
-					<p className='description__text'> There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger. </p>
+					<p className='description__text'> {description} </p>
 				</div>
 				<div className='base__stats'>
 					<p className='base__stats__title'> Base Stats </p>

@@ -1,22 +1,23 @@
 @use '../variables' as *;
 
 $types-colors: (
-  bug: $Bug,
-  dark: $Dark,
-  fairy: $Fairy,
-  fighting: $Fighting,
-  fire: $Fire,
-  flying: $Flying,
-  ghost: $Ghost,
-  grass: $Grass,
-  ground: $Ground,
-  ice: $Ice,
-  normal: $Normal,
-  poison: $Poison,
-  psychic: $Psychic,
-  rock: $Rock,
-  steel: $Steel,
-  water: $Water,
+  bug: darken($Bug, 20%),
+  dark: darken($Dark, 20%),
+  fairy: darken($Fairy, 20%),
+  fighting: darken($Fighting, 20%),
+  fire: darken($Fire, 20%),
+  flying: darken($Flying, 20%),
+  ghost: darken($Ghost, 20%),
+  grass: darken($Grass, 20%),
+  ground: darken($Ground, 20%),
+  ice: darken($Ice, 20%),
+  normal: darken($Normal, 20%),
+  poison: darken($Poison, 20%),
+  psychic: darken($Psychic, 20%),
+  rock: darken($Rock, 20%),
+  steel: darken($Steel, 20%),
+  water: darken($Water, 20%),
+  dragon: darken($Dragon, 20%),
 );
 
 @mixin background-color($type) {
@@ -24,145 +25,147 @@ $types-colors: (
 }
 
 .allInfo {
-	max-height: 90vh;
-	width: 560px;
-	overflow-y: auto;
-	position: fixed;
-	top: 10px;
-	left: 100px;
-	padding: 1rem 2rem;
-	// width: 100vw;
-	// height: 100vh;
-	// background-color: rgba(0, 0, 0, 0.5); // Add background overlay
-	z-index: 1000; // Ensure it is above other elements
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50vh; // Prend 50% de la hauteur de l'écran
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; // Permet le défilement vertical
+  color: $White;
 
-	@each $type, $color in $types-colors {
-		&.#{$type} {
-		  @include background-color($type);
-		}
-	  }
 
+  @each $type, $color in $types-colors {
+    &.#{$type} {
+      @include background-color($type);
+    }
+  }
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .popup__header,
 .popup__info {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
 }
 
 .popup__title,
 .popup__id {
-	color: $White;
+  color: $White;
 }
 
 .popup__title {
-	font-weight: bold;
-	font-size: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 .popup__back {
-	background-color: transparent;
-	border: none;
-	font-size: 2rem;
-	cursor: pointer;
-	object-fit: contain;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: $White;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $White;
 }
 
 .popup__stats {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2em;
-	background-color: $White;
-	margin: 0 1em;
-	padding: 1em;
-	border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  border-radius: 5px;
 }
 
-.popup__img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+.popup__img__container {
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup__types {
-	display: flex;
-	flex-direction: row;
-	gap: 1em;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 }
 
 .about {
-	font-weight: bold;
-	font-size: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .popup__measurements {
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	justify-content: center;
-	text-align: center;
-	gap: 1em;
-	height: auto;
-	padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+  height: auto;
+  padding: 1rem;
 }
 
 .weight__container,
 .height__container,
 .moves__value {
-	display: flex;
-	gap: 1em;
-	padding: 1em;
+  display: flex;
+  gap: 1em;
+  padding: 1em;
 }
 
 .moves {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup__divider {
-	border: none;
-	background-color: $Steel;
-	width: 2px;
+  border: none;
+  background-color: $White;
+  width: 2px;
 }
 
 .height__title,
 .weight__title,
 .moves__title {
-	color: $Medium;
+  color: $White;
 }
 
 .description {
-	padding: 0 1em;
-	text-align: center;
+  padding: 0 1em;
+  text-align: center;
 }
 
 .base__stats {
-	width: 100%;
-	padding: 1rem;
+  width: 100%;
+  padding: 1rem;
 }
 
 .base__stats__title {
-	text-align: center;
-	font-weight: bold;
-	font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .stat__name {
-	flex: 0.5;
-	text-align: right;
-	margin: 0 2em 0 0;
+  flex: 0.5;
+  text-align: right;
+  margin: 0 2em 0 0;
 }
