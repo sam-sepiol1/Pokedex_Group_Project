@@ -58,7 +58,7 @@ const Popup = ({ id, onClose }) => {
 				</div>
 				<div className='popup__info'>
 					<p className='popup__id'> #{data.id ? `00${data.id}`.slice(-3) : '000'} </p>
-					<Button></Button>
+					<Button name={data.name}></Button>
 				</div>
 			</div>
 			<div className='popup__stats'>
