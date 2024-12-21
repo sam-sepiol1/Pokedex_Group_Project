@@ -24,18 +24,22 @@ $types-colors: (
   background-color: map-get($types-colors, $type);
 }
 
+
 .allInfo {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 50vh; // Prend 50% de la hauteur de l'écran
-  padding: 1rem 2rem;
+  height: 50vh;
+  padding: 3rem 2rem;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; // Permet le défilement vertical
+  overflow-y: auto; 
   color: $White;
+  border-radius: 15px;
+  background-color: $Dark;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
   @each $type, $color in $types-colors {
@@ -47,10 +51,12 @@ $types-colors: (
 
 .popup__container {
   display: flex;
-  flex-direction: column;
+  gap : 1em;
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: $Dark;
+  border-radius: 50px;
 }
 
 .popup__header,
@@ -90,6 +96,7 @@ $types-colors: (
   gap: 2em;
   padding: 1em;
   border-radius: 5px;
+
 }
 
 .popup__img__container {
@@ -156,6 +163,15 @@ $types-colors: (
 .base__stats {
   width: 100%;
   padding: 1rem;
+  background-color: rgba($Background, 0.9);
+  border-radius: 5px;
+  color: $Dark;
+}
+
+.stats__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .base__stats__title {
@@ -164,8 +180,38 @@ $types-colors: (
   font-size: 1.5rem;
 }
 
-.stat__name {
-  flex: 0.5;
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5 1.3em;
+}
+
+.label {
+  width: 40px;
   text-align: right;
-  margin: 0 2em 0 0;
+  font-weight: bold;
+
+
+}
+
+.value {
+  width: 40px;
+  text-align: right;
+  font-weight: bold;
+
+}
+
+.bar {
+  flex-grow: 1;
+  height: 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  background-color: $Dark;
+  border-radius: 4px 0 0 4px;
 }

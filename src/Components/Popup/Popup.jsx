@@ -4,11 +4,9 @@ import { useEffect, useState } from 'react';
 import { fetchPokemonDetails } from '../Card/api';
 import Button from '../Button/Button';
 import './_popup.scss';
-import weightImage from '../../images/weight.png';
-import heightImage from '../../images/height.png';
 import Types from '../Types/Types';
 
-const Popup = ({id, onClose }) => {
+const Popup = ({ id, onClose }) => {
 	const [data, setData] = useState({});
 	const [description, setDescription] = useState('');
 
@@ -23,32 +21,29 @@ const Popup = ({id, onClose }) => {
 	const getBackgroundClass = (types) => {
 		if (!types || types.length === 0) return '';
 		return types[0].type.name; // Utilisez le premier type pour définir la classe
-	  };
+	};
 
-	  useEffect(() => {
+	useEffect(() => {
 		const fetchDescription = async () => {
-		  const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-		  const descriptionData = await data.json();
-		  setDescription(descriptionData.flavor_text_entries[0].flavor_text);
+			const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+			const descriptionData = await data.json();
+			setDescription(descriptionData.flavor_text_entries[0].flavor_text);
 		};
 		fetchDescription();
-	  }, [id]);
-
+	}, [id]);
 
 	return (
-		<div className={`allInfo ${getBackgroundClass(data.types)}`}  >
-			<div className='popup' >
-				<div className='popup__container'  onClick={(e) => e.stopPropagation()}>
-					<div className='popup__header'>
-						<button className='popup__back' onClick={onClose}>
-							<IoMdArrowBack />
-						</button>
-						<h2 className='popup__title'> {data.name ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : ''} </h2>
-					</div>
-					<div className='popup__info'>
-						<p className='popup__id'> #{data.id ? `00${data.id}`.slice(-3) : '000'}  </p>
-						<Button></Button>
-					</div>
+		<div className={`allInfo ${getBackgroundClass(data.types)}`}>
+			<div className='popup__container' onClick={(e) => e.stopPropagation()}>
+				<div className='popup__header'>
+					<button className='popup__back' onClick={onClose}>
+						<IoMdArrowBack />
+					</button>
+					<h2 className='popup__title'> {data.name ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : ''} </h2>
+				</div>
+				<div className='popup__info'>
+					<p className='popup__id'> #{data.id ? `00${data.id}`.slice(-3) : '000'} </p>
+					<Button></Button>
 				</div>
 			</div>
 			<div className='popup__stats'>
@@ -62,7 +57,6 @@ const Popup = ({id, onClose }) => {
 				<div className='popup__measurements'>
 					<div className='weight'>
 						<div className='weight__container'>
-							<img src={weightImage} alt='weight' />
 							<p className='weight__value'> {data.weight / 10} kg </p>
 						</div>
 						<p className='weight__title'> Weight </p>
@@ -70,7 +64,7 @@ const Popup = ({id, onClose }) => {
 					<hr className='popup__divider' />
 					<div className='height'>
 						<div className='height__container'>
-							<img src={heightImage} alt='height' />
+
 							<p className='height__value'> {data.height / 10} m </p>
 						</div>
 						<p className='height__title'> Height </p>
@@ -89,11 +83,12 @@ const Popup = ({id, onClose }) => {
 					<div className='stats__container'>
 						{data.stats &&
 							data.stats.map((stat, index) => (
-								<div key={index}>
-									<p className='stats__name'>
-										{' '}
-										{stat.stat.name} : {stat.base_stat}{' '}
-									</p>
+								<div key={index} className='stat'>
+									<span className='label'> {stat.stat.name}</span>
+									<span className='value'> {stat.base_stat}</span>
+									<div className='bar'>
+										<div className={`fill ${getBackgroundClass(data.types)}`} style={{ width: `${stat.base_stat/2}%` }}></div>
+									</div>
 								</div>
 							))}
 					</div>
