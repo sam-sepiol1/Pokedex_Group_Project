@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { IoMdArrowBack } from 'react-icons/io';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchPokemonDetails } from '../Card/api';
 import Button from '../Button/Button';
 import './_popup.scss';
@@ -9,6 +9,7 @@ import Types from '../Types/Types';
 const Popup = ({ id, onClose }) => {
 	const [data, setData] = useState({});
 	const [description, setDescription] = useState('');
+	const popupRef = useRef(null); // Référence au conteneur du popup
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -20,7 +21,7 @@ const Popup = ({ id, onClose }) => {
 
 	const getBackgroundClass = (types) => {
 		if (!types || types.length === 0) return '';
-		return types[0].type.name; // Utilisez le premier type pour définir la classe
+		return types[0].type.name;
 	};
 
 	useEffect(() => {
@@ -32,8 +33,22 @@ const Popup = ({ id, onClose }) => {
 		fetchDescription();
 	}, [id]);
 
+	// Détecte les clics en dehors du popup
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (popupRef.current && !popupRef.current.contains(event.target)) {
+				onClose(); // Ferme le popup si le clic est à l'extérieur
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [onClose]);
+
 	return (
-		<div className={`allInfo ${getBackgroundClass(data.types)}`}>
+		<div className={`allInfo ${getBackgroundClass(data.types)}`} ref={popupRef}>
 			<div className='popup__container' onClick={(e) => e.stopPropagation()}>
 				<div className='popup__header'>
 					<button className='popup__back' onClick={onClose}>
