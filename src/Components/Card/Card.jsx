@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'; // Import React hooks
+import { useEffect, useState } from 'react';
 import HeartButton from '../Button/Button';
-import { fetchPokemons } from './api'; 
+import { fetchPokemons } from './api';
 import './_card.scss';
-import Popup from '../Popup/Popup'; 
+import Popup from '../Popup/Popup';
 
 export default function Card({ filter = [], sortType = 'id' }) {
 	const [pokemons, setPokemons] = useState([]);
-  const [selectedPokemonId, setSelectedPokemonId] = useState(null);
+	const [selectedPokemonId, setSelectedPokemonId] = useState(null);
 
 	useEffect(() => {
 		const getPokemons = async () => {
@@ -17,33 +17,31 @@ export default function Card({ filter = [], sortType = 'id' }) {
 		getPokemons();
 	}, []);
 
-  const filteredPokemons = pokemons.filter((pokemon) => {
-    const pokemonId = pokemon.url.split('/')[6];
-    if (Array.isArray(filter)) {
-        return filter.includes(pokemon.name);
-    } else if (typeof filter === 'string') {
-        return pokemon.name.toLowerCase().startsWith(filter.toLowerCase()) || pokemonId === filter;
-    }
-    return true;
-});
+	const filteredPokemons = pokemons.filter((pokemon) => {
+		const pokemonId = pokemon.url.split('/')[6];
+		if (Array.isArray(filter)) {
+			return filter.includes(pokemon.name);
+		} else if (typeof filter === 'string') {
+			return pokemon.name.toLowerCase().startsWith(filter.toLowerCase()) || pokemonId === filter;
+		}
+		return true;
+	});
 
-const sortedPokemons = filteredPokemons.sort((a, b) => {
-	if (sortType === 'id') {
-		return a.url.split('/')[6] - b.url.split('/')[6];
-	} else {
-		return a.name.localeCompare(b.name);
-	}
-});
+	const sortedPokemons = filteredPokemons.sort((a, b) => {
+		if (sortType === 'id') {
+			return a.url.split('/')[6] - b.url.split('/')[6];
+		} else {
+			return a.name.localeCompare(b.name);
+		}
+	});
 
-const handleCardClick = (pokemonId) => { // *** Added ***
-  setSelectedPokemonId(pokemonId);    // *** Added ***
-};
+	const handleCardClick = (pokemonId) => {
+		setSelectedPokemonId(pokemonId);
+	};
 
-const closePopup = () => {              // *** Added ***
-  setSelectedPokemonId(null);        // *** Added ***
-};
-
-
+	const closePopup = () => {
+		setSelectedPokemonId(null);
+	};
 
 	return (
 		<div className='cards'>
@@ -55,28 +53,17 @@ const closePopup = () => {              // *** Added ***
 					</div>
 					{pokemons.length > 0 ? (
 						<>
-            < div
-              className="card-clickable" // *** Added ***
-              onClick={() => handleCardClick(pokemon.url.split('/')[6])} // *** Added ***
-                                >
-							<img loading='lazy' 
-              className='card-img'
-             // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} 
-              alt={pokemon.name} />
-							<p className='card-name'>{pokemon.name}</p>
-              </div>
+							<div className='card-clickable' onClick={() => handleCardClick(pokemon.url.split('/')[6])}>
+								<img loading='lazy' className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
+								<p className='card-name'>{pokemon.name}</p>
+							</div>
 						</>
 					) : (
-						<p>Loading...</p> // Show loading text while data is being fetched
+						<p>Loading...</p> 
 					)}
 				</div>
 			))}
-
-      {/* Show Popup if a Pokémon is selected */}
-      {selectedPokemonId && ( // *** Added ***
-                <Popup id={selectedPokemonId} onClose={closePopup} /> // *** Added ***
-            )}
+			{selectedPokemonId && <Popup id={selectedPokemonId} onClose={closePopup} />}
 		</div>
 	);
 }

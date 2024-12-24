@@ -1,11 +1,9 @@
 @use 'variables';
-@use 'reset' ;
-@use 'typography' ;
+@use 'reset';
+@use 'typography';
 @use './Header/header';
 @use './Card/card';
 @use './Input/input';
 @use './Popup/popup';
 @use './Sort/sort';
-
-
-@use './Liked/liked'
+@use './Liked/liked';

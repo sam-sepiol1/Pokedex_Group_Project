@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import './_types.scss'
+import './_types.scss';
 
-const Types = ({data}) => {
-
+const Types = ({ data }) => {
 	const types = data && data.types ? data.types : [];
 
 	return (

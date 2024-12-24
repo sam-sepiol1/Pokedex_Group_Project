@@ -2,8 +2,8 @@
 import './_header.scss'
 import Pokeball from '../../assets/Pokeball.svg'
 import Input from '../Input/Input'
-import { Link } from 'react-router-dom' // Import Link for navigation
-import { Outlet } from 'react-router-dom' // Import Outlet for rendering nested routes
+import { Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 const Header = ({ search, handleInputChange, handleSortChange, sortType }) => {
     return (
@@ -16,13 +16,11 @@ const Header = ({ search, handleInputChange, handleSortChange, sortType }) => {
                 <div className="header__search">
                     <Input search={search} handleInputChange={handleInputChange} handleSortChange={handleSortChange} sortType={sortType} />
                 </div>
-                {/* Add navigation links */}
                 <nav className="header__nav">
                     <Link to="/" className="header__nav__link"></Link>
                     <Link to="/liked" className="header__nav__link"></Link>
                 </nav>
             </header>
-            {/* Add Outlet to render nested routes here */}
             <Outlet />
         </>
     )

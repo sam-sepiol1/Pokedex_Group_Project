@@ -1,25 +1,25 @@
 @use '../variables' as *;
 
-.header { 
-    background-color: $Primary;
-    padding: 2em 1em;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+.header {
+	background-color: $Primary;
+	padding: 2em 1em;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
 
-    &__logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-    }
+	&__logo {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
 
-    &__logo__img {
-        color: $White;
-    }
+	&__logo__img {
+		color: $White;
+	}
 
-    &__logo__title {
-        color: $White;
-        margin: 0;
-    }
+	&__logo__title {
+		color: $White;
+		margin: 0;
+	}
 }

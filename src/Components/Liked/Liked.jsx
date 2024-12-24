@@ -7,10 +7,8 @@ export default function Liked({ search, sortType = "id" }) {
   const [likedPokemons, setLikedPokemons] = useState([]);
 
   useEffect(() => {
-    // Get the favorite Pokémon names from localStorage
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setLikedPokemons(favorites);
-    // Listen for storage events and update the likedPokemons state
     window.addEventListener("storage", () => {
       const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       setLikedPokemons(favorites);

@@ -1,26 +1,21 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import heartImage from '../../images/heart.png';
-import transparentHeartImage from '../../images/transparent-heart.png';
 import Sort_Button from '../Button/Sort_Button';
 
 import './_input.scss';
 
 const Input = ({ search, handleInputChange, handleSortChange, sortType }) => {
-	const [liked, setLiked] = useState(false); // State to track whether the item is liked
-	const navigate = useNavigate(); // Initialize the navigate hook for programmatic navigation
+	const [liked, setLiked] = useState(false);
+	const navigate = useNavigate();
 
-	// Function to toggle the "liked" state
 	const toggleLike = () => {
-		setLiked(!liked); // Toggle the liked state
-		// If the heart is already liked, navigate to home page
+		setLiked(!liked);
 		if (liked) {
-			navigate('/'); // Navigate back to the home page
+			navigate('/');
 		} else {
-			navigate('/liked'); // Navigate to the liked page
+			navigate('/liked');
 		}
 	};
 

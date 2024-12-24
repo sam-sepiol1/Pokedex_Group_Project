@@ -1,39 +1,38 @@
 @use '../variables' as *;
 
 .input__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1em;
-
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
 }
 
-.form { 
-    width: 100%;
+.form {
+	width: 100%;
 }
 
-.input { 
-    border: none;
-    border-radius: 50px;
-    padding: 1rem 0 1rem 1rem;
-    box-shadow: $InnerShadow;
-    width: 85%;
-    flex: 5;
+.input {
+	border: none;
+	border-radius: 50px;
+	padding: 1rem 0 1rem 1rem;
+	box-shadow: $InnerShadow;
+	width: 85%;
+	flex: 5;
 }
 
-.button{
-    border-radius: 15px;
-    box-shadow: $InnerShadow;
-    cursor: pointer;
-    border: none;
-    padding: 0.5rem;
-    min-width: 12%;
-    max-width: 15%;
+.button {
+	border-radius: 15px;
+	box-shadow: $InnerShadow;
+	cursor: pointer;
+	border: none;
+	padding: 0.5rem;
+	min-width: 12%;
+	max-width: 15%;
 
-    color: $Dark;
-    
-    &__link{
-        color: $Dark;
-        text-decoration: none;
-    }
+	color: $Dark;
+
+	&__link {
+		color: $Dark;
+		text-decoration: none;
+	}
 }

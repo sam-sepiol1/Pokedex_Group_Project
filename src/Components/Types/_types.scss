@@ -1,84 +1,84 @@
 @use '../variables' as *;
 
-
-.type { 
-    padding: 0.5em 1em;
-    border-radius: 50px;
-    color: $White;
-    font-size: 1rem;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
+.type {
+	padding: 0.5em 1em;
+	border-radius: 50px;
+	color: $White;
+	font-size: 1rem;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
 }
 
 .bug {
-    background-color: $Bug;
+	background-color: $Bug;
 }
 
 .dark {
-    background-color: $Dark;
+	background-color: $Dark;
 }
 
 .dragon {
-    background-color: $Dragon;
-}
-
-.fairy {
-    background-color: $Fairy;
-}
-
-.fighting {
-    background-color: $Fighting;
-}
-
-.fire {
-    background-color: $Fire;
-}
-
-.flying {
-    background-color: $Flying;
-}
-
-.ghost {
-    background-color: $Ghost;
-}
-
-.grass {
-    background-color: $Grass;
-}
-
-.ground {
-    background-color: $Ground;
-}
-
-.ice {
-    background-color: $Ice;
-}
-
-.normal {
-    background-color: $Normal;
-}
-
-.poison {
-    background-color: $Poison;
-}
-
-.psychic {
-    background-color: $Psychic;
-}
-
-.rock {
-    background-color: $Rock;
-}
-
-.steel {
-    background-color: $Steel;
-}
-
-.water {
-    background-color: $Water;
+	background-color: $Dragon;
 }
 
 .electric {
-    background-color: $Electric;
+	background-color: $Electric;
 }
+
+.fairy {
+	background-color: $Fairy;
+}
+
+.fighting {
+	background-color: $Fighting;
+}
+
+.fire {
+	background-color: $Fire;
+}
+
+.flying {
+	background-color: $Flying;
+}
+
+.ghost {
+	background-color: $Ghost;
+}
+
+.grass {
+	background-color: $Grass;
+}
+
+.ground {
+	background-color: $Ground;
+}
+
+.ice {
+	background-color: $Ice;
+}
+
+.normal {
+	background-color: $Normal;
+}
+
+.poison {
+	background-color: $Poison;
+}
+
+.psychic {
+	background-color: $Psychic;
+}
+
+.rock {
+	background-color: $Rock;
+}
+
+.steel {
+	background-color: $Steel;
+}
+
+.water {
+	background-color: $Water;
+}
+

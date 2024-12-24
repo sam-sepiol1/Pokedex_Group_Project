@@ -9,7 +9,7 @@ import Types from '../Types/Types';
 const Popup = ({ id, onClose }) => {
 	const [data, setData] = useState({});
 	const [description, setDescription] = useState('');
-	const popupRef = useRef(null); // Référence au conteneur du popup
+	const popupRef = useRef(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -28,19 +28,16 @@ const Popup = ({ id, onClose }) => {
 		const fetchDescription = async () => {
 			const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 			const descriptionData = await data.json();
-			const englishDescription = descriptionData.flavor_text_entries.find(
-				(entry) => entry.language.name === 'en'
-			);
+			const englishDescription = descriptionData.flavor_text_entries.find((entry) => entry.language.name === 'en');
 			setDescription(englishDescription ? englishDescription.flavor_text : '');
 		};
 		fetchDescription();
 	}, [id]);
 
-	// Détecte les clics en dehors du popup
 	useEffect(() => {
 		const handleClickOutside = (event) => {
 			if (popupRef.current && !popupRef.current.contains(event.target)) {
-				onClose(); // Ferme le popup si le clic est à l'extérieur
+				onClose();
 			}
 		};
 
@@ -82,7 +79,6 @@ const Popup = ({ id, onClose }) => {
 					<hr className='popup__divider' />
 					<div className='height'>
 						<div className='height__container'>
-
 							<p className='height__value'> {data.height / 10} m </p>
 						</div>
 						<p className='height__title'> Height </p>
@@ -105,7 +101,7 @@ const Popup = ({ id, onClose }) => {
 									<span className='label'> {stat.stat.name}</span>
 									<span className='value'> {stat.base_stat}</span>
 									<div className='bar'>
-										<div className={`fill ${getBackgroundClass(data.types)}`} style={{ width: `${stat.base_stat/2}%` }}></div>
+										<div className={`fill ${getBackgroundClass(data.types)}`} style={{ width: `${stat.base_stat / 2}%` }}></div>
 									</div>
 								</div>
 							))}
