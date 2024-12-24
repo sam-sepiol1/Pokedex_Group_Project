@@ -51,16 +51,10 @@ export default function Card({ filter = [], sortType = 'id' }) {
 						<HeartButton name={pokemon.name} />
 						<p className='card-number'>{`#${String(pokemon.url.split('/')[6]).padStart(3, '0')}`}</p>
 					</div>
-					{pokemons.length > 0 ? (
-						<>
-							<div className='card-clickable' onClick={() => handleCardClick(pokemon.url.split('/')[6])}>
-								<img loading='lazy' className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
-								<p className='card-name'>{pokemon.name}</p>
-							</div>
-						</>
-					) : (
-						<p>Loading...</p> 
-					)}
+					<div className='card-clickable' onClick={() => handleCardClick(pokemon.url.split('/')[6])}>
+						<img loading='lazy' className='card-img' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name} />
+						<p className='card-name'>{pokemon.name}</p>
+					</div>
 				</div>
 			))}
 			{selectedPokemonId && <Popup id={selectedPokemonId} onClose={closePopup} />}
