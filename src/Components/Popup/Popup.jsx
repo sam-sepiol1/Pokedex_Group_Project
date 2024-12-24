@@ -57,7 +57,7 @@ const Popup = ({ id, onClose }) => {
 					<h2 className='popup__title'> {data.name ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : ''} </h2>
 				</div>
 				<div className='popup__info'>
-					<p className='popup__id'> #{data.id ? `00${data.id}`.slice(-4) : '0000'} </p>
+					<p className='popup__id'> #{data.id ? data.id.toString().length <= 3 ? `00${data.id}`.slice(-3) : `0000${data.id}`.slice(-4) : '0000'} </p>
 					<Button name={data.name} className='popup__button'></Button>
 				</div>
 			</div>
