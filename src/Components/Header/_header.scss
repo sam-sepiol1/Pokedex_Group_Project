@@ -1,6 +1,10 @@
 @use '../variables' as *;
 
 .header {
+	position: sticky;
+	top: 0;
+
+
 	background-color: $Primary;
 	padding: 2em 1em;
 	margin: 0;

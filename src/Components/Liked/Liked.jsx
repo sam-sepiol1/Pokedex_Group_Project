@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../Card/_card.scss";
+import "./_liked.scss";
 import Card from "../Card/Card";
 
 export default function Liked({ search, sortType = "id" }) {
@@ -30,7 +31,7 @@ export default function Liked({ search, sortType = "id" }) {
       {filteredPokemons.length > 0 ? (
         <Card filter={filteredPokemons} sortType={sortType} />
       ) : (
-        <h1>No favorites yet!</h1>
+        <h1 className="no-favorites">No favorites yet !</h1>
       )}
     </div>
   );

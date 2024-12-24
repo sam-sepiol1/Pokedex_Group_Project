@@ -28,7 +28,7 @@ const Input = ({ search, handleInputChange, handleSortChange, sortType }) => {
 
 			<button className={`button ${liked ? '' : 'liked'}`} onClick={toggleLike}>
 				<Link className='button__link' to={liked ? '/liked' : '/'}>
-					{liked ? 'Favorites' : 'All'}
+					{liked ? 'All' : 'Favorites'}
 				</Link>
 			</button>
 		</div>
