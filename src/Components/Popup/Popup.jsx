@@ -28,7 +28,10 @@ const Popup = ({ id, onClose }) => {
 		const fetchDescription = async () => {
 			const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
 			const descriptionData = await data.json();
-			setDescription(descriptionData.flavor_text_entries[0].flavor_text);
+			const englishDescription = descriptionData.flavor_text_entries.find(
+				(entry) => entry.language.name === 'en'
+			);
+			setDescription(englishDescription ? englishDescription.flavor_text : '');
 		};
 		fetchDescription();
 	}, [id]);
@@ -57,7 +60,7 @@ const Popup = ({ id, onClose }) => {
 					<h2 className='popup__title'> {data.name ? data.name.charAt(0).toUpperCase() + data.name.slice(1) : ''} </h2>
 				</div>
 				<div className='popup__info'>
-					<p className='popup__id'> #{data.id ? `00${data.id}`.slice(-3) : '000'} </p>
+					<p className='popup__id'> #{data.id ? `000${data.id}`.slice(-4) : '0000'} </p>
 					<Button name={data.name} className='popup__button'></Button>
 				</div>
 			</div>
