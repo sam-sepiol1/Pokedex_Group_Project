@@ -54,7 +54,6 @@ $types-colors: (
   gap : 1em;
   align-items: center;
   justify-content: center;
-  width: 100%;
   background-color: $Dark;
   border-radius: 50px;
 }
@@ -96,15 +95,16 @@ $types-colors: (
   gap: 2em;
   padding: 1em;
   border-radius: 5px;
-
 }
 
-.popup__img__container {
-  object-fit: contain;
+.popup__img { 
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 95%;
 }
+
+
 
 .popup__types {
   display: flex;
@@ -125,6 +125,8 @@ $types-colors: (
   text-align: center;
   gap: 1em;
   height: auto;
+  width: 100%;
+  max-width: 500px;
   padding: 1rem;
 }
 
