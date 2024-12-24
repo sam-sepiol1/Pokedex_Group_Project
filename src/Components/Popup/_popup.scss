@@ -1,27 +1,31 @@
+@use "sass:map";
+@use "sass:color";
+
 @use '../variables' as *;
 
 $types-colors: (
-  bug: darken($Bug, 20%),
-  dark: darken($Dark, 20%),
-  fairy: darken($Fairy, 20%),
-  fighting: darken($Fighting, 20%),
-  fire: darken($Fire, 20%),
-  flying: darken($Flying, 20%),
-  ghost: darken($Ghost, 20%),
-  grass: darken($Grass, 20%),
-  ground: darken($Ground, 20%),
-  ice: darken($Ice, 20%),
-  normal: darken($Normal, 20%),
-  poison: darken($Poison, 20%),
-  psychic: darken($Psychic, 20%),
-  rock: darken($Rock, 20%),
-  steel: darken($Steel, 20%),
-  water: darken($Water, 20%),
-  dragon: darken($Dragon, 20%),
+  bug: color.adjust($Bug, $lightness: -20%, $space: hsl),
+  dark: color.adjust($Dark, $lightness: -20%, $space: hsl),
+  fairy: color.adjust($Fairy, $lightness: -20%, $space: hsl),
+  fighting: color.adjust($Fighting, $lightness: -20%, $space: hsl),
+  fire: color.adjust($Fire, $lightness: -20%, $space: hsl),
+  flying: color.adjust($Flying, $lightness: -20%, $space: hsl),
+  ghost: color.adjust($Ghost, $lightness: -20%, $space: hsl),
+  grass: color.adjust($Grass, $lightness: -20%, $space: hsl),
+  ground: color.adjust($Ground, $lightness: -20%, $space: hsl),
+  ice: color.adjust($Ice, $lightness: -20%, $space: hsl),
+  normal: color.adjust($Normal, $lightness: -20%, $space: hsl),
+  poison: color.adjust($Poison, $lightness: -20%, $space: hsl),
+  psychic: color.adjust($Psychic, $lightness: -20%, $space: hsl),
+  rock: color.adjust($Rock, $lightness: -20%, $space: hsl),
+  steel: color.adjust($Steel, $lightness: -20%, $space: hsl),
+  water: color.adjust($Water, $lightness: -20%, $space: hsl),
+  dragon: color.adjust($Dragon, $lightness: -20%, $space: hsl),
+  electric: color.adjust($Electric, $lightness: -20%, $space: hsl),
 );
 
 @mixin background-color($type) {
-  background-color: map-get($types-colors, $type);
+  background-color: map.get($types-colors, $type);
 }
 
 
