@@ -5,6 +5,7 @@ import { fetchPokemons } from './api';
 import './_card.scss';
 import Popup from '../Popup/Popup'; 
 
+
 export default function Card({ filter = [], sortType = 'id' }) {
 	const [pokemons, setPokemons] = useState([]);
   const [selectedPokemonId, setSelectedPokemonId] = useState(null);
