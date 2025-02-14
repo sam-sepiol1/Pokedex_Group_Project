@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
 import Liked from './Components/Liked/Liked';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
 	const [search, setSearch] = useState('');
@@ -16,31 +17,17 @@ function App() {
 		setSortType((prevSortType) => (prevSortType === 'id' ? 'name' : 'id'));
 	};
 
-	const router = createBrowserRouter(
-		[
-			{
-				path: '/',
-				element: <Header search={search} handleInputChange={handleInputChange} handleSortChange={handleSortChange} sortType={sortType} />,
-				children: [
-					{ path: '/', element: <Card filter={search} sortType={sortType} /> },
-					{ path: '/liked', element: <Liked search={search} handleInputChange={handleInputChange} sortType={sortType} /> },
-					{ path: '*', element: <h1>404 Page Not Found</h1> },
-				],
-			},
-		],
-		{
-			future: {
-				v7_partialHydration: true,
-				v7_skipActionErrorRevalidation: true,
-				v7_startTransition: true,
-				v7_relativeSplatPath: true,
-				v7_fetcherPersist: true,
-				v7_normalizeFormMethod: true,
-			},
-		}
+	return (
+		<Router>
+			<Header search={search} handleInputChange={handleInputChange} handleSortChange={handleSortChange} sortType={sortType} />
+			<Routes>
+				<Route path="/" element={<Card filter={search} sortType={sortType} />} />
+				<Route path="/liked" element={<Liked search={search} sortType={sortType} />} />
+			</Routes>
+		</Router>
 	);
 
-	return <RouterProvider router={router} />;
+
 }
 
 export default App;

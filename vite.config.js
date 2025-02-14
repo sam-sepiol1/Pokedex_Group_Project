@@ -1,21 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import sass from 'sass' // Importer le module sass
+import sass from 'sass' 
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   
   css: {
     preprocessorOptions: {
       scss: {
-        implementation: sass, // Utiliser l'API moderne de Dart Sass
-      },
+        implementation: sass,
+    },
     },
   },
 
   server: {
-    hmr: true, // Explicitly enable HMR
+    hmr: true,
     port: 5173,
     watch: {
       usePolling: true
